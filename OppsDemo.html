@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OPPS CONCEPT DEMO</title>
+
+    <script type="text/javascript">
+      
+      alert("Check it out Fingerprint Supported or Not?");
+      let f_sensor;
+      let RamSize;
+      let RomSize;
+      let Sensor;
+      let Ram;
+      let Rom;
+
+      class Mobile
+      {
+        constructor(id)
+        {
+          this.id=id;
+        }
+      }
+
+      class SmartPhone extends Mobile
+      {
+        constructor(name,id)
+        {
+            super(id);
+            this.name=name;
+        }
+
+        Config()
+        { 
+            Ram=SmartObj.RamValidation();
+            Rom=SmartObj.RomValidation();
+            Sensor=SmartObj.SensorValidation();  
+            
+        }
+
+        RamValidation()
+        {
+          let ramsize=prompt("How Much RAM You Have [2/4/6]?");
+          if(ramsize>=2 && ramsize<=6)
+          {
+              RamSize=ramsize;
+              return true;
+          }
+          else
+          {
+            alert("Not Enougf RAM Size Your Phone");
+            this.RamValidation();
+          }
+
+        }
+
+        RomValidation()
+        {
+          let romsize=prompt("How Much ROM You Have [16/32/64/128]?");
+          if(romsize>=32 && romsize<=128)
+          {
+            RomSize=romsize;
+            return true;
+          }
+          else
+          {
+            alert("Not Enougf ROM Size In Your Phone");
+            this.RomValidation();
+          }
+        }
+        SensorValidation()
+        {
+          let sensor=prompt("Phone Having a Fingerprint Sensor [Yes/No]?");
+          if(sensor=="Yes" || sensor=="Y" || sensor=="yes" || sensor=="y")
+          {
+            f_sensor=sensor;
+            //return true;
+            alert("Fingerprint Supported");
+          }
+          else
+          {
+            sensor ="No";
+            alert("Fingerprint Not Supported");
+          }
+        }
+
+      }
+      let SmartObj = new SmartPhone("child","perent");
+      SmartObj.Config();
+
+    </script>
+</head>
+<body>
+    <div style="">
+      
+    </div>
+</body>
+</html>
